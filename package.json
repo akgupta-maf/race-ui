@@ -1,6 +1,6 @@
 {
   "name": "@maf/race-ui",
-  "version": "0.1.2",
+  "version": "1.0.0",
   "description": "Internal shared React UI component library",
   "type": "module",
   "module": "./dist/index.js",
@@ -53,6 +53,6 @@
     "vite-plugin-dts": "^4.0.0"
   },
   "publishConfig": {
-    "registry": "https://pkgs.dev.azure.com/promo-app/_packaging/promo-app/npm/registry/"
+    "registry": "https://pkgs.dev.azure.com/MAFRetailDevOps/911f3a95-e1df-4498-97c5-5aa148a857f1/_packaging/maf-race/npm/registry/"
   }
 }
