@@ -40,6 +40,7 @@ export default defineConfig({
         },
       },
     },
+    assetsInlineLimit: 0,
     sourcemap: true,
     emptyOutDir: true,
   },
