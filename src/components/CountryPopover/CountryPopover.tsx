@@ -45,7 +45,7 @@ const CountryPopover: React.FC<CountryPopoverProps> = ({
       <PopoverPanel
         transition
         anchor='bottom'
-        className='bg-gray-100 rounded-md py-1 transition duration-200 ease-in-out [--anchor-gap:var(--spacing-5)] data-closed:-translate-y-1 data-closed:opacity-0 border shadow-xs z-50 w-48 overflow-hidden'
+        className='bg-gray-100 rounded-md py-1 transition duration-200 ease-in-out [--anchor-gap:var(--spacing-5)] data-closed:-translate-y-1 data-closed:opacity-0 border border-gray-300 shadow-xs z-50 w-48 overflow-hidden'
       >
         <div className='bg-gray-100 w-full'>
           {countryList.map((c) => {
