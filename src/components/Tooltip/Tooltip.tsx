@@ -38,7 +38,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 
       {isVisible && (
         <div
-          className={`absolute bg-gray-700 text-white rounded shadow-lg ${sizeClasses[size]} ${positionClasses[position]}  min-w-[120px] max-w-[250px] break-words text-center z-50`}
+          className={`absolute bg-gray-700 text-white rounded shadow-lg ${sizeClasses[size]} ${positionClasses[position]}  min-w-30 max-w-62.5 wrap-break-word text-center z-50`}
         >
           {text}
         </div>
