@@ -1,6 +1,6 @@
 import clsx from 'clsx';
-import React, { useState } from 'react';
-import Typography from '../Typography/Typography';
+import React from 'react';
+import Typography from '../Typography';
 
 interface RadioOption {
   label: string;
@@ -8,6 +8,7 @@ interface RadioOption {
 }
 
 interface RadioGroupProps {
+  selectedOption: string;
   options: RadioOption[];
   name: string;
   onChange: (value: string) => void;
@@ -19,13 +20,9 @@ const RadioGroup: React.FC<RadioGroupProps> = ({
   name,
   onChange,
   align,
+  selectedOption,
 }) => {
-  const [selectedOption, setSelectedOption] = useState<string | null>(
-    options[0]?.value,
-  );
-
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSelectedOption(event.target.value);
     onChange(event.target.value);
   };
 
@@ -47,11 +44,9 @@ const RadioGroup: React.FC<RadioGroupProps> = ({
             value={option.value}
             checked={selectedOption === option.value}
             onChange={handleChange}
-            className='form-radio h-4 w-4 text-blue-600 border-gray-300' // Removed focus:ring-3 classes
+            className='h-4 w-4 text-primary-cta border-gray-300 focus:ring-primary-cta  cursor-pointer accent-primary'
           />
-          <Typography variant='caption' customClassname='text-gray-700'>
-            {option.label}
-          </Typography>
+          <Typography variant='caption'>{option.label}</Typography>
         </label>
       ))}
     </div>
