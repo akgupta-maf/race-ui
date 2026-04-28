@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700&family=Roboto:ital,wght@0,400;0,500;0,600;0,700&display=swap');
+
+@theme {
+  /* Theme Colors */
+  --color-primary: rgb(49, 37, 28);
+  --color-primary-20: rgb(214, 211, 210);
+  --color-primary-40: rgb(173, 168, 164);
+  --color-primary-60: rgb(131, 124, 119);
+  --color-primary-80: rgb(90, 81, 73);
+  --color-secondary: rgb(180, 151, 90);
+  --color-secondary-80: rgb(195, 172, 123);
+  --color-secondary-60: rgb(210, 193, 156);
+  --color-secondary-40: rgb(225, 213, 189);
+  --color-secondary-20: rgb(240, 234, 222);
+  --color-primary-cta: rgb(138, 21, 56);
+  --color-primary-cta-hover: rgb(161, 68, 96);
+  --color-typography: rgb(30, 41, 59);
+  --color-typography-secondary: rgb(148, 163, 184);
+  --color-surface-bg: rgb(241, 245, 249);
+
+  /* Semantic colors used by components */
+  --color-dark: #111827;
+  --color-light: #f9fafb;
+  --color-grey: #6b7280;
+  --color-success: #22c55e;
+  --color-warning: #f59e0b;
+  --color-info: #3b82f6;
+
+  /* Font Family */
+  --font-*: initial;
+  --font-sans: 'Roboto', sans-serif;
+
+  /* Typography */
+  --text-h1: 3rem;
+  --text-h2: 2.25rem;
+  --text-h3: 1.875rem;
+  --text-h4: 1.5rem;
+  --text-body-lg: 1.25rem;
+  --text-body: 1rem;
+  --text-caption: 0.875rem;
+  --text-overline: 0.75rem;
+  --text-caption-xs: 0.625rem;
+  --text-h1--line-height: 3.5rem;
+  --text-h2--line-height: 2.75rem;
+  --text-h3--line-height: 2.25rem;
+  --text-h4--line-height: 2rem;
+  --text-body-lg--line-height: 1.75rem;
+  --text-body--line-height: 1.5rem;
+  --text-caption--line-height: 1.25rem;
+  --text-overline--line-height: 1rem;
+  --text-caption-xs--line-height: 0.75rem;
+
+  /* Font Weights */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semiBold: 600;
+  --font-weight-bold: 700;
+
+  /* Letter Spacing */
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.02em;
+
+  /* Animations */
+  --animate-moving: moving 1s ease-in-out infinite;
+  @keyframes moving {
+    50% {
+      width: 100%;
+    }
+
+    100% {
+      width: 0;
+      right: 0;
+      left: unset;
+    }
+  }
+}
