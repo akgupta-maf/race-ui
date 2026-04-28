@@ -19,7 +19,6 @@ export const WithHelperText: Story = {
     label: 'Email',
     name: 'email',
     type: 'email',
-    placeholder: 'you@example.com',
     helperText: 'We will never share your email.',
   },
 };
