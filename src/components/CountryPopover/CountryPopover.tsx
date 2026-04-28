@@ -7,6 +7,7 @@ import {
 import { CheckIcon, ChevronDownIcon } from '@heroicons/react/24/outline';
 import React from 'react';
 import { getCountryFlag } from '../../utils/countryFlags';
+import Tooltip from '../Tooltip/Tooltip';
 import Typography from '../Typography/Typography';
 
 export interface Country {
@@ -29,16 +30,18 @@ const CountryPopover: React.FC<CountryPopoverProps> = ({
 
   return (
     <Popover>
-      <PopoverButton className='block focus:outline-hidden data-focus:outline-1 data-focus:outline-white'>
-        <div className='flex items-center cursor-pointer'>
-          <img
-            src={getCountryFlag(country.name.toUpperCase())}
-            alt='logo'
-            className='max-w-10 h-6 w-auto'
-          />
-          <ChevronDownIcon className='w-4 h-4 ml-2' />
-        </div>
-      </PopoverButton>
+      <Tooltip text={country.name} position='bottom' size='small'>
+        <PopoverButton className='block focus:outline-hidden data-focus:outline-1 data-focus:outline-white'>
+          <div className='flex items-center cursor-pointer'>
+            <img
+              src={getCountryFlag(country.name.toUpperCase())}
+              alt='logo'
+              className='max-w-10 h-6 w-auto'
+            />
+            <ChevronDownIcon className='w-4 h-4 ml-2' />
+          </div>
+        </PopoverButton>
+      </Tooltip>
       <PopoverPanel
         transition
         anchor='bottom'
@@ -68,7 +71,7 @@ const CountryPopover: React.FC<CountryPopoverProps> = ({
                   {c.name}
                 </Typography>
                 {isSelected && (
-                  <CheckIcon className='w-3.5 h-3.5 text-primary shrink-0' />
+                  <CheckIcon className='w-4 h-4 text-primary shrink-0' />
                 )}
               </CloseButton>
             );
