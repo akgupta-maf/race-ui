@@ -1,6 +1,6 @@
 {
   "name": "@maf/race-ui",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "Internal shared React UI component library",
   "type": "module",
   "module": "./dist/index.js",
@@ -34,14 +34,13 @@
   },
   "peerDependencies": {
     "@headlessui/react": ">=2",
-    "@heroicons/react": ">=2",
     "clsx": ">=2",
+    "lucide-react": ">=1",
     "react": ">=18",
     "react-dom": ">=18"
   },
   "devDependencies": {
     "@headlessui/react": "^2.2.10",
-    "@heroicons/react": "^2.2.0",
     "@storybook/addon-a11y": "^10.3.5",
     "@storybook/addon-docs": "^10.3.5",
     "@storybook/react": "^10.3.5",
@@ -53,6 +52,7 @@
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^5.0.0",
     "clsx": "^2.1.1",
+    "lucide-react": "^1.11.0",
     "react": "^18.3.0",
     "react-dom": "^18.3.0",
     "storybook": "^10.3.5",

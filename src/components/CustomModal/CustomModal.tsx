@@ -1,6 +1,6 @@
 import { Dialog, Transition } from '@headlessui/react';
-import { XMarkIcon } from '@heroicons/react/24/outline';
 import clsx from 'clsx';
+import { X } from 'lucide-react';
 import { Fragment, ReactNode } from 'react';
 
 interface ModalProps {
@@ -67,7 +67,7 @@ const CustomModal = ({
               <h2 className='text-lg font-semibold text-gray-900'>{title}</h2>
             )}
             {showCloseIcon && (
-              <XMarkIcon
+              <X
                 className='w-6 h-6 -ml-8  cursor-pointer absolute top-4 right-4 text-primary'
                 onClick={() => {
                   onClose();

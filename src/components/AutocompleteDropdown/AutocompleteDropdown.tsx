@@ -1,9 +1,5 @@
-import {
-  CheckIcon,
-  ChevronDownIcon,
-  XMarkIcon,
-} from '@heroicons/react/24/outline';
 import clsx from 'clsx';
+import { Check, ChevronDown, X } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import Typography from '../Typography/Typography';
 
@@ -103,7 +99,7 @@ const AutocompleteDropdown = (props: SelectorProps) => {
           <span className='text-[10px] leading-3 truncate font-semibold capitalize'>
             {sel.key.toLowerCase()}
           </span>
-          <XMarkIcon
+          <X
             onClick={() => {
               handleOptionClick(sel);
             }}
@@ -182,7 +178,7 @@ const AutocompleteDropdown = (props: SelectorProps) => {
               />
             </svg>
           ) : (
-            <ChevronDownIcon
+            <ChevronDown
               className={clsx('w-4 h-4 ml-auto', open && 'rotate-180')}
             />
           )}
@@ -232,9 +228,7 @@ const AutocompleteDropdown = (props: SelectorProps) => {
                     >
                       <Typography variant='overline' customClassname='flex'>
                         {String(option.key)}
-                        {isSelected && (
-                          <CheckIcon className='w-4 h-4 ml-auto' />
-                        )}
+                        {isSelected && <Check className='w-4 h-4 ml-auto' />}
                       </Typography>
                     </a>
                   </li>

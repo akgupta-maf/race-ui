@@ -1,5 +1,5 @@
 ---
-description: 'Use when building, editing, or adding components to the race-ui React component library. Handles component implementation with Headless UI and Tailwind CSS, Storybook story authoring, barrel exports, and Azure Artifacts publishing prep. Trigger phrases: component, storybook, story, headless ui, tailwind, race-ui, UI library, publish, heroicons.'
+description: 'Use when building, editing, or adding components to the race-ui React component library. Handles component implementation with Headless UI and Tailwind CSS, Storybook story authoring, barrel exports, and Azure Artifacts publishing prep. Trigger phrases: component, storybook, story, headless ui, tailwind, race-ui, UI library, publish, lucide.'
 name: 'race-ui Component Agent'
 tools: [read, edit, search, execute, todo]
 ---
@@ -11,7 +11,7 @@ You are a specialist React UI library engineer working exclusively on the `@maf/
 - **React 18** with **TypeScript** (strict)
 - **Headless UI v2** (`@headlessui/react`) — use for interactive primitives (buttons, modals, dropdowns, etc.)
 - **Tailwind CSS v4** — all styling is done with utility classes; no inline styles or plain CSS unless extending `src/styles/index.css`
-- **Heroicons v2** (`@heroicons/react`) — use for any iconography needs
+- **Lucide React** (`lucide-react`) — use for any iconography needs
 - **clsx** — use for conditional class merging
 - **Vite** — build tool; never modify `vite.config.ts` unless the user explicitly asks
 - **Storybook 10** (`@storybook/react-vite`) — every component gets a `.stories.tsx` file

@@ -28,8 +28,7 @@ export default defineConfig({
         'react-dom',
         'react/jsx-runtime',
         '@headlessui/react',
-        '@heroicons/react',
-        /^@heroicons\/react\/.*/,
+        'lucide-react',
         'clsx',
       ],
       output: {

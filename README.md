@@ -4,19 +4,19 @@ Internal shared React UI component library for MAF projects. Built with Headless
 
 ## Components
 
-| Component | Description |
-|---|---|
-| `AutocompleteDropdown` | Searchable dropdown with autocomplete |
-| `CustomButton` | Button with `solid`, `outline`, and `ghost` variants plus loading state |
-| `Checkbox` | Accessible checkbox input |
-| `CountryPopover` | Country selector with flag support |
-| `CustomModal` | Modal dialog |
-| `Input` | Text input field |
-| `ProgressBar` | Progress bar with context provider and hook |
-| `RadioGroup` | Radio button group |
-| `RangeSlider` | Range/slider input |
-| `Tooltip` | Tooltip overlay |
-| `Typography` | Text rendering with heading and body variants |
+| Component              | Description                                                             |
+| ---------------------- | ----------------------------------------------------------------------- |
+| `AutocompleteDropdown` | Searchable dropdown with autocomplete                                   |
+| `CustomButton`         | Button with `solid`, `outline`, and `ghost` variants plus loading state |
+| `Checkbox`             | Accessible checkbox input                                               |
+| `CountryPopover`       | Country selector with flag support                                      |
+| `CustomModal`          | Modal dialog                                                            |
+| `Input`                | Text input field                                                        |
+| `ProgressBar`          | Progress bar with context provider and hook                             |
+| `RadioGroup`           | Radio button group                                                      |
+| `RangeSlider`          | Range/slider input                                                      |
+| `Tooltip`              | Tooltip overlay                                                         |
+| `Typography`           | Text rendering with heading and body variants                           |
 
 ## Installation
 
@@ -29,16 +29,16 @@ npm install @maf/race-ui
 ### Peer Dependencies
 
 ```bash
-npm install react react-dom @headlessui/react @heroicons/react clsx
+npm install react react-dom @headlessui/react lucide-react clsx
 ```
 
-| Package | Version |
-|---|---|
-| `react` | `>=18` |
-| `react-dom` | `>=18` |
-| `@headlessui/react` | `>=2` |
-| `@heroicons/react` | `>=2` |
-| `clsx` | `>=2` |
+| Package             | Version |
+| ------------------- | ------- |
+| `react`             | `>=18`  |
+| `react-dom`         | `>=18`  |
+| `@headlessui/react` | `>=2`   |
+| `lucide-react`      | `>=0`   |
+| `clsx`              | `>=2`   |
 
 ## Usage
 
@@ -74,12 +74,12 @@ import '@maf/race-ui/theme';
 
 The theme exposes CSS custom properties for colors, typography, and font families. Key tokens:
 
-| Token | Value |
-|---|---|
-| `--color-primary-cta` | `rgb(138, 21, 56)` |
-| `--color-primary` | `rgb(49, 37, 28)` |
-| `--color-secondary` | `rgb(180, 151, 90)` |
-| `--font-sans` | `Roboto, sans-serif` |
+| Token                 | Value                |
+| --------------------- | -------------------- |
+| `--color-primary-cta` | `rgb(138, 21, 56)`   |
+| `--color-primary`     | `rgb(49, 37, 28)`    |
+| `--color-secondary`   | `rgb(180, 151, 90)`  |
+| `--font-sans`         | `Roboto, sans-serif` |
 
 ## Development
 
@@ -119,6 +119,6 @@ Ensure your npm auth token for the Azure Artifacts registry is set before publis
 - **TypeScript 5** — Type safety
 - **Tailwind CSS v4** — Utility-first styling
 - **Headless UI v2** — Accessible, unstyled UI primitives
-- **Heroicons v2** — Icon set
+- **Lucide React** — Icon set
 - **Vite** — Build tooling with library mode
 - **Storybook 10** — Component documentation and development

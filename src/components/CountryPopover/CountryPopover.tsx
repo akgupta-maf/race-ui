@@ -4,7 +4,7 @@ import {
   PopoverButton,
   PopoverPanel,
 } from '@headlessui/react';
-import { CheckIcon, ChevronDownIcon } from '@heroicons/react/24/outline';
+import { Check, ChevronDown } from 'lucide-react';
 import React from 'react';
 import { getCountryFlag } from '../../utils/countryFlags';
 import Tooltip from '../Tooltip/Tooltip';
@@ -38,7 +38,7 @@ const CountryPopover: React.FC<CountryPopoverProps> = ({
               alt='logo'
               className='max-w-10 h-6 w-auto'
             />
-            <ChevronDownIcon className='w-4 h-4 ml-2' />
+            <ChevronDown className='w-4 h-4 ml-2' />
           </div>
         </PopoverButton>
       </Tooltip>
@@ -71,7 +71,7 @@ const CountryPopover: React.FC<CountryPopoverProps> = ({
                   {c.name}
                 </Typography>
                 {isSelected && (
-                  <CheckIcon className='w-4 h-4 text-primary shrink-0' />
+                  <Check className='w-4 h-4 text-primary shrink-0' />
                 )}
               </CloseButton>
             );
