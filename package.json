@@ -1,6 +1,6 @@
 {
   "name": "@maf/race-ui",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "Internal shared React UI component library",
   "type": "module",
   "module": "./dist/index.js",
