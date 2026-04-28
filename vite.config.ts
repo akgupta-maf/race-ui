@@ -12,14 +12,22 @@ export default defineConfig({
       include: ['src'],
       exclude: ['src/**/*.stories.tsx'],
       tsconfigPath: './tsconfig.json',
-      rollupTypes: true,
+      rollupTypes: false,
     }),
   ],
   build: {
     lib: {
-      entry: fileURLToPath(new URL('src/index.ts', import.meta.url)),
+      entry: {
+        index: fileURLToPath(new URL('src/index.ts', import.meta.url)),
+        'hooks/index': fileURLToPath(
+          new URL('src/hooks/index.ts', import.meta.url),
+        ),
+        'utils/index': fileURLToPath(
+          new URL('src/utils/index.ts', import.meta.url),
+        ),
+      },
       name: 'RaceUI',
-      fileName: () => 'index.js',
+      fileName: (_format, entryName) => `${entryName}.js`,
       formats: ['es'],
     },
     rollupOptions: {

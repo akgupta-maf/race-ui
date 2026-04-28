@@ -7,6 +7,7 @@ export * from './components/Input';
 export * from './components/ProgressBar';
 export * from './components/RadioGroup';
 export * from './components/RangeSlider';
+export * from './components/Search';
 export * from './components/Tabs';
 export * from './components/Tooltip';
 export * from './components/Typography';
