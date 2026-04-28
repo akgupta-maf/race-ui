@@ -1,6 +1,7 @@
 export * from './components/AutocompleteDropdown';
 export * from './components/Button';
 export * from './components/Checkbox';
+export * from './components/CountryPopover';
 export * from './components/CustomModal';
 export * from './components/Input';
 export * from './components/ProgressBar';
