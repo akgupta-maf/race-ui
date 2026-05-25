@@ -42,7 +42,7 @@ const Search = ({
       </div>
       <input
         type='text' // Changed from 'search' to 'text' to hide the default cancel button
-        className='block w-full p-1 pl-10 pr-8 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:outline-none focus:ring-0 focus:border-primary'
+        className='block w-full py-1 pl-10 pr-8 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:outline-none focus:ring-0 focus:border-primary'
         placeholder={placeholder}
         value={searchTerm}
         onChange={handleSearchChange}
