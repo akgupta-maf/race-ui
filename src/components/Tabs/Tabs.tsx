@@ -1,4 +1,5 @@
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from '@headlessui/react';
+import clsx from 'clsx';
 import React, { useState } from 'react';
 import { logActivity } from '../../utils/activityLog.util';
 import { CustomButton } from '../Button';
@@ -21,6 +22,7 @@ interface TabsProps {
   buttonGroup?: ITabButtonGroup[];
   messages?: string[];
   country?: { name: string };
+  variant?: 'underline' | 'pill';
 }
 
 const Tabs: React.FC<TabsProps> = ({
@@ -30,6 +32,7 @@ const Tabs: React.FC<TabsProps> = ({
   buttonGroup,
   messages,
   country,
+  variant = 'underline',
 }) => {
   const [internalSelectedTab, setInternalSelectedTab] = useState(0);
   const isControlled = controlledSelectedTab !== undefined;
@@ -65,12 +68,17 @@ const Tabs: React.FC<TabsProps> = ({
       onChange={handleTabChange}
       className='flex flex-col flex-1 w-full'
     >
-      <div className='flex items-center justify-between'>
-        <TabList className='flex gap-4'>
+      <div className={clsx('flex items-center justify-between', variant === 'underline' && 'border-b border-gray-200')}>
+        <TabList className='flex gap-1'>
           {tabs.map(({ name }) => (
             <Tab
               key={name}
-              className='rounded-sm py-1 px-3 text-sm/6 font-semibold focus:outline-hidden data-selected:bg-primary-40 data-hover:bg-primary-20 data-selected:data-hover:bg-primary-40 data-focus:outline-1 data-focus:outline-white'
+              className={clsx(
+                'font-semibold focus:outline-hidden transition-colors duration-150',
+                variant === 'underline'
+                  ? 'py-2 px-3 -mb-px border-b-2 border-transparent text-primary-60 data-selected:border-primary-cta data-selected:text-primary data-hover:text-primary rounded-none'
+                  : 'rounded-sm py-1 px-3 data-selected:bg-primary-40 data-hover:bg-primary-20 data-selected:data-hover:bg-primary-40 data-focus:outline-1 data-focus:outline-white',
+              )}
             >
               <Typography variant='caption' weight='semiBold'>
                 {name}
@@ -100,12 +108,12 @@ const Tabs: React.FC<TabsProps> = ({
           </div>
         )}
       </div>
-      <TabPanels className='mt-3 flex-1 flex flex-col'>
+      <TabPanels className='mt-0 flex-1 flex flex-col'>
         {tabs.map(({ name, children, unmount = true }) => (
           <TabPanel
             unmount={unmount}
             key={name}
-            className='rounded-xl bg-white/5 p-1 flex flex-col flex-1'
+            className='flex flex-col flex-1'
           >
             {children}
           </TabPanel>

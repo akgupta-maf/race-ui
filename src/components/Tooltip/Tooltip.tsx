@@ -30,7 +30,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 
   return (
     <div
-      className='relative flex items-center max-w-full'
+      className='relative inline-flex items-center w-fit max-w-fit'
       onMouseEnter={() => setIsVisible(true)}
       onMouseLeave={() => setIsVisible(false)}
     >
@@ -38,7 +38,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 
       {isVisible && (
         <div
-          className={`absolute bg-gray-700 text-white rounded shadow-lg ${sizeClasses[size]} ${positionClasses[position]}  min-w-30 max-w-62.5 wrap-break-word text-center z-50`}
+          className={`absolute bg-primary text-secondary-20 rounded shadow-lg ${sizeClasses[size]} ${positionClasses[position]} min-w-30 max-w-62.5 wrap-break-word text-center z-50`}
         >
           {text}
         </div>

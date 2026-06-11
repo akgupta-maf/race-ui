@@ -2,12 +2,14 @@ import { Button } from '@headlessui/react';
 import React, { PropsWithChildren } from 'react';
 
 type ButtonVariant = 'solid' | 'outline' | 'ghost';
+type ButtonSize = 'xs' | 'sm' | 'md';
 
 type CustomButtonProps = {
   onClick?: () => void;
   disabled?: boolean;
   loading?: boolean;
   variant?: ButtonVariant;
+  size?: ButtonSize;
 } & PropsWithChildren;
 
 export const CustomButton: React.FC<CustomButtonProps> = ({
@@ -16,16 +18,22 @@ export const CustomButton: React.FC<CustomButtonProps> = ({
   onClick,
   loading = false,
   variant = 'solid',
+  size = 'sm',
 }) => {
-  const baseClasses =
-    'cursor-pointer inline-flex items-center gap-2 rounded-md py-1.5 px-3 text-sm shadow-inner focus:outline-none';
+  const sizeClasses: Record<ButtonSize, string> = {
+    xs: 'py-1 px-2 text-xs',
+    sm: 'py-1.5 px-3 text-sm',
+    md: 'py-2 px-4 text-sm',
+  };
+
+  const baseClasses = `cursor-pointer inline-flex items-center gap-2 rounded-lg shadow-sm transition-colors duration-150 focus:outline-none ${sizeClasses[size]}`;
 
   const disabledClasses = 'bg-gray-300 text-gray-600 cursor-not-allowed';
 
   const variantClasses = {
-    solid: 'bg-primary-cta text-white shadow-white/10',
-    outline: 'border border-primary-cta text-primary-cta bg-transparent',
-    ghost: 'bg-transparent text-primary-cta',
+    solid: 'bg-primary-cta text-white hover:bg-primary-cta-hover',
+    outline: 'border border-primary-cta text-primary-cta bg-transparent hover:bg-primary-cta/5',
+    ghost: 'bg-transparent text-primary-cta hover:bg-primary-cta/5',
   };
 
   const loadingSpinnerColor =

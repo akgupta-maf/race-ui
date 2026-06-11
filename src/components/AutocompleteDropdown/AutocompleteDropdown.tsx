@@ -94,16 +94,16 @@ const AutocompleteDropdown = (props: SelectorProps) => {
       return selected.map((sel) => (
         <div
           key={sel.value}
-          className='flex px-1 pt-0.5 border border-solid border-gray-400 mr-1 rounded-md items-center'
+          className='group mr-1 mb-1 inline-flex items-center gap-1 rounded-md border border-gray-300 bg-white px-1.5 py-0.5 shadow-xs'
         >
-          <span className='text-[10px] leading-3 truncate font-semibold capitalize'>
+          <span className='max-w-20 truncate text-[10px] leading-3 font-semibold capitalize text-gray-700'>
             {sel.key.toLowerCase()}
           </span>
           <X
             onClick={() => {
               handleOptionClick(sel);
             }}
-            className='w-3 h-3 ml-1 cursor-pointer'
+            className='h-3 w-3 cursor-pointer text-gray-500 transition-colors group-hover:text-gray-800'
           />
         </div>
       ));
@@ -136,7 +136,12 @@ const AutocompleteDropdown = (props: SelectorProps) => {
           if (loading) return;
           setOpen((prev) => !prev);
         }}
-        className='relative cursor-pointer bg-gray-50 border border-gray-200 text-black text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2 py-1.5'
+        className={clsx(
+          'relative block w-full cursor-pointer rounded-md border px-2 py-1.5 text-sm text-black transition-all',
+          'bg-white shadow-xs hover:shadow-sm hover:border-gray-300',
+          open ? 'border-gray-400 ring-2 ring-primary-20' : 'border-gray-200',
+          loading && 'cursor-not-allowed opacity-70',
+        )}
       >
         {props.label && selected.length ? (
           <span
@@ -145,20 +150,20 @@ const AutocompleteDropdown = (props: SelectorProps) => {
               lineHeight: '12px',
             }}
             className={clsx(
-              'absolute transition-all left-1 px-1 bg-gray-50',
+              'absolute left-1 px-1 transition-all bg-white text-gray-600',
               open || selected.length
                 ? '-top-1.5 font-medium'
-                : 'top-1/2 -translate-y-1/2 left-1 text-xs ',
+                : 'top-1/2 -translate-y-1/2 left-1 text-xs',
             )}
           >
             {props.label}
           </span>
         ) : null}
-        <div className='flex items-center flex-wrap'>
+        <div className='flex min-h-5 items-center flex-wrap'>
           {getPlaceholderComponent()}
           {loading ? (
             <svg
-              className='animate-spin w-4 h-4 ml-auto text-gray-500'
+              className='ml-auto h-4 w-4 animate-spin text-gray-500'
               xmlns='http://www.w3.org/2000/svg'
               fill='none'
               viewBox='0 0 24 24'
@@ -179,7 +184,10 @@ const AutocompleteDropdown = (props: SelectorProps) => {
             </svg>
           ) : (
             <ChevronDown
-              className={clsx('w-4 h-4 ml-auto', open && 'rotate-180')}
+              className={clsx(
+                'ml-auto h-4 w-4 text-gray-600 transition-transform duration-200',
+                open && 'rotate-180',
+              )}
             />
           )}
         </div>
@@ -191,22 +199,22 @@ const AutocompleteDropdown = (props: SelectorProps) => {
           id='dropdown'
           style={{ zIndex: 200000 }}
           className={clsx(
-            'transition-opacity z-50 absolute bg-white divide-y divide-gray-100 rounded-lg rounded-t-md shadow-md w-full max-h-48 overflow-y-auto',
+            'absolute z-50 mt-1 max-h-56 w-full overflow-y-auto rounded-lg border border-gray-200 bg-white shadow-lg ring-1 ring-black/5',
           )}
         >
           {showSearch && (
-            <div className='p-2'>
+            <div className='sticky top-0 z-10 border-b border-gray-100 bg-white p-2'>
               <input
                 type='text'
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 placeholder='Search...'
-                className='w-full px-2 py-1 border border-gray-300 rounded-md text-xs text-gray-700 focus:ring-blue-500 focus:border-blue-500'
+                className='w-full rounded-md border border-gray-300 px-2 py-1 text-xs text-gray-700 outline-none transition-colors focus:border-gray-400 focus:ring-2 focus:ring-primary-20'
               />
             </div>
           )}
           <ul
-            className='py-2 text-sm text-gray-700'
+            className='py-1 text-sm text-gray-700'
             aria-labelledby='dropdownDefaultButton'
           >
             {filteredOptions.length ? (
@@ -219,18 +227,25 @@ const AutocompleteDropdown = (props: SelectorProps) => {
                     key={option.value}
                     onClick={() => handleOptionClick(option)}
                   >
-                    <a
-                      href='#'
+                    <button
+                      type='button'
                       className={clsx(
-                        'block px-3 py-1.5 hover:bg-gray-100 text-xs font-medium',
-                        isSelected ? 'bg-gray-100' : '',
+                        'block w-full px-3 py-2 text-left text-xs font-medium transition-colors',
+                        isSelected
+                          ? 'bg-primary-20/50 text-primary'
+                          : 'hover:bg-gray-50',
                       )}
                     >
-                      <Typography variant='overline' customClassname='flex'>
+                      <Typography
+                        variant='overline'
+                        customClassname='flex items-center gap-2'
+                      >
                         {String(option.key)}
-                        {isSelected && <Check className='w-4 h-4 ml-auto' />}
+                        {isSelected && (
+                          <Check className='ml-auto h-4 w-4 text-primary' />
+                        )}
                       </Typography>
-                    </a>
+                    </button>
                   </li>
                 );
               })

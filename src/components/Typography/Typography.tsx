@@ -19,6 +19,7 @@ interface TypographyProps {
     | 'dark'
     | 'light'
     | 'grey'
+    | 'muted'
     | 'success'
     | 'error'
     | 'warning'
@@ -54,6 +55,7 @@ const colorClasses: Record<string, string> = {
   dark: 'text-dark',
   light: 'text-light',
   grey: 'text-grey',
+  muted: 'text-typography-secondary',
   success: 'text-success',
   error: 'text-red-400',
   warning: 'text-warning',
