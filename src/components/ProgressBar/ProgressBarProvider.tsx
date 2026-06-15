@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from 'react';
+import React, { PropsWithChildren, useCallback } from 'react';
 import { Progress } from './Progress';
 
 export const ProgressBarContext = React.createContext<{
@@ -8,12 +8,12 @@ export const ProgressBarContext = React.createContext<{
 
 const ProgressBarProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const [showProgressBar, setShowProgressBar] = React.useState(false);
-  const showProgress = () => {
+  const showProgress = useCallback(() => {
     setShowProgressBar(true);
-  };
-  const hideProgress = () => {
+  }, []);
+  const hideProgress = useCallback(() => {
     setShowProgressBar(false);
-  };
+  }, []);
   return (
     <ProgressBarContext.Provider value={{ showProgress, hideProgress }}>
       {showProgressBar && <Progress />}
