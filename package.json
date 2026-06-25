@@ -1,6 +1,6 @@
 {
   "name": "@maf/race-ui",
-  "version": "1.0.28",
+  "version": "1.0.30",
   "description": "Internal shared React UI component library",
   "type": "module",
   "module": "./dist/index.js",
@@ -45,7 +45,8 @@
     "clsx": ">=2",
     "lucide-react": ">=1",
     "react": ">=18",
-    "react-dom": ">=18"
+    "react-dom": ">=18",
+    "react-router-dom": ">=6"
   },
   "devDependencies": {
     "@headlessui/react": "^2.2.10",
@@ -64,6 +65,7 @@
     "lucide-react": "^1.11.0",
     "react": "^18.3.0",
     "react-dom": "^18.3.0",
+    "react-router-dom": "^6.30.4",
     "storybook": "^10.3.5",
     "tailwindcss": "^4.2.2",
     "typescript": "^5.7.0",

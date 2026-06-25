@@ -38,6 +38,8 @@ export default defineConfig({
         '@headlessui/react',
         'lucide-react',
         'clsx',
+        'react-router',
+        'react-router-dom',
       ],
       output: {
         globals: {

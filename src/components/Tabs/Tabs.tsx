@@ -41,19 +41,20 @@ const Tabs: React.FC<TabsProps> = ({
     : internalSelectedTab;
 
   const handleTabChange = (index: number) => {
-    if (!country) return;
-    logActivity({
-      event_type: 'tab_click',
-      country: country?.name,
-      event_name: `${tabs[index].name
-        .split(' ')
-        .join('_')
-        .toLowerCase()}_tab_click`,
-      component: 'Tab Component',
-      event_metadata: {
-        tabName: tabs[index].name,
-      },
-    });
+    if (country) {
+      logActivity({
+        event_type: 'tab_click',
+        country: country.name,
+        event_name: `${tabs[index].name
+          .split(' ')
+          .join('_')
+          .toLowerCase()}_tab_click`,
+        component: 'Tab Component',
+        event_metadata: {
+          tabName: tabs[index].name,
+        },
+      });
+    }
     if (!isControlled) {
       setInternalSelectedTab(index);
     }
@@ -68,7 +69,12 @@ const Tabs: React.FC<TabsProps> = ({
       onChange={handleTabChange}
       className='flex flex-col flex-1 w-full'
     >
-      <div className={clsx('flex items-center justify-between', variant === 'underline' && 'border-b border-gray-200')}>
+      <div
+        className={clsx(
+          'flex items-center justify-between mb-4',
+          variant === 'underline' && 'border-b border-gray-200',
+        )}
+      >
         <TabList className='flex gap-1'>
           {tabs.map(({ name }) => (
             <Tab
