@@ -75,7 +75,9 @@ const Header: React.FC<HeaderProps> = ({
               country={country}
             />
           )}
-          <div className='h-5 w-px bg-gray-200' />
+          {(filters || (showCountry && country)) && (
+            <div className='h-5 w-px bg-gray-200' />
+          )}
           {userMenu}
         </div>
       </div>
