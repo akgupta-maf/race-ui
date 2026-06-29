@@ -159,8 +159,8 @@ const Sidebar: React.FC<SidebarProps> = ({
                         className={clsx(
                           'block truncate transition duration-150 px-2 py-2',
                           isSelected
-                            ? 'border-l-2 border-primary-cta bg-white shadow-sm rounded-r-md'
-                            : 'hover:bg-white/60 rounded-md',
+                            ? 'border-l-2 border-primary bg-primary/10 shadow-sm rounded-r-md'
+                            : 'hover:bg-primary/10 rounded-md',
                         )}
                         onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
                           e.preventDefault();
@@ -182,7 +182,7 @@ const Sidebar: React.FC<SidebarProps> = ({
                               className={clsx(
                                 'shrink-0 h-5 w-5',
                                 isSelected
-                                  ? 'fill-transparent stroke-primary-cta'
+                                  ? 'fill-transparent stroke-primary'
                                   : 'stroke-primary fill-none',
                               )}
                             />
@@ -194,7 +194,7 @@ const Sidebar: React.FC<SidebarProps> = ({
                                 customClassname={clsx(
                                   'ml-3 duration-200',
                                   isSelected
-                                    ? 'text-primary-cta'
+                                    ? 'text-primary'
                                     : 'text-primary-80',
                                 )}
                               >
@@ -209,7 +209,7 @@ const Sidebar: React.FC<SidebarProps> = ({
                                   'w-3 h-3 shrink-0 ml-1 fill-current transition-transform duration-200',
                                   open && 'rotate-180',
                                   isSelected
-                                    ? 'text-primary-cta'
+                                    ? 'text-primary'
                                     : 'text-primary-60',
                                 )}
                                 viewBox='0 0 12 12'
@@ -232,7 +232,7 @@ const Sidebar: React.FC<SidebarProps> = ({
                                   className={clsx(
                                     'my-1 last:mb-0 px-2.5 py-1 transition duration-150',
                                     isActiveTab
-                                      ? 'bg-primary-cta/10 border-l-2 border-primary-cta rounded-r-md'
+                                      ? 'bg-primary/10 border-l-2 border-primary rounded-r-md'
                                       : 'hover:bg-white/60 rounded-md',
                                   )}
                                 >
@@ -248,7 +248,7 @@ const Sidebar: React.FC<SidebarProps> = ({
                                       customClassname={clsx(
                                         'duration-200',
                                         isActiveTab
-                                          ? 'text-primary-cta font-medium'
+                                          ? 'text-primary font-medium'
                                           : 'text-primary-80',
                                       )}
                                     >
@@ -273,7 +273,7 @@ const Sidebar: React.FC<SidebarProps> = ({
       <div className='sidebar-container'>
         <div className='sidebar-content'>
           {expanded ? (
-            <div className='mt-auto px-4 py-2 bg-white rounded-lg border border-secondary-40 flex justify-between items-center'>
+            <div className='mt-auto px-4 py-2 bg-primary/10 rounded-lg border border-secondary-40 flex justify-between items-center'>
               <div>
                 <Typography variant='caption'>Contact Us</Typography>
               </div>

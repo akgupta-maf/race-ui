@@ -1,6 +1,6 @@
 {
   "name": "@maf/race-ui",
-  "version": "1.0.31",
+  "version": "1.0.38",
   "description": "Internal shared React UI component library",
   "type": "module",
   "module": "./dist/index.js",
@@ -33,7 +33,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "vite build && npx @tailwindcss/cli -i src/styles/index.css -o dist/styles.css --minify && cp src/styles/theme.css dist/theme.css && echo 'declare const styles: string; export default styles;' > dist/styles.d.ts",
+    "build": "vite build && npx @tailwindcss/cli -i src/styles/index.css -o dist/styles.css --minify && cp src/styles/theme.css dist/theme.css && printf '\\n@source \"./index.js\";' >> dist/theme.css && echo 'declare const styles: string; export default styles;' > dist/styles.d.ts",
     "dev": "vite build --watch",
     "typecheck": "tsc --noEmit",
     "storybook": "storybook dev -p 6006",
