@@ -25,6 +25,12 @@ export default defineConfig({
         'utils/index': fileURLToPath(
           new URL('src/utils/index.ts', import.meta.url),
         ),
+        'auth/index': fileURLToPath(
+          new URL('src/auth/index.ts', import.meta.url),
+        ),
+        'themes/index': fileURLToPath(
+          new URL('src/themes/index.ts', import.meta.url),
+        ),
       },
       name: 'RaceUI',
       fileName: (_format, entryName) => `${entryName}.js`,
@@ -40,6 +46,8 @@ export default defineConfig({
         'clsx',
         'react-router',
         'react-router-dom',
+        'ag-grid-community',
+        'axios',
       ],
       output: {
         globals: {

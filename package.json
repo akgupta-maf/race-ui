@@ -1,6 +1,6 @@
 {
   "name": "@maf/race-ui",
-  "version": "1.0.38",
+  "version": "1.1.0",
   "description": "Internal shared React UI component library",
   "type": "module",
   "module": "./dist/index.js",
@@ -18,6 +18,10 @@
       "types": "./dist/utils/index.d.ts",
       "import": "./dist/utils/index.js"
     },
+    "./auth": {
+      "types": "./dist/auth/index.d.ts",
+      "import": "./dist/auth/index.js"
+    },
     "./styles": {
       "types": "./dist/styles.d.ts",
       "style": "./dist/styles.css",
@@ -27,6 +31,10 @@
       "types": "./dist/styles.d.ts",
       "style": "./dist/theme.css",
       "default": "./dist/theme.css"
+    },
+    "./themes": {
+      "types": "./dist/themes/index.d.ts",
+      "import": "./dist/themes/index.js"
     }
   },
   "files": [
@@ -42,6 +50,8 @@
   },
   "peerDependencies": {
     "@headlessui/react": ">=2",
+    "ag-grid-community": ">=33",
+    "axios": ">=1",
     "clsx": ">=2",
     "lucide-react": ">=1",
     "react": ">=18",
@@ -60,6 +70,7 @@
     "@types/react": "^18.3.0",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^5.0.0",
+    "ag-grid-community": "^36.0.0",
     "axios": "^1.7.2",
     "clsx": "^2.1.1",
     "lucide-react": "^1.11.0",

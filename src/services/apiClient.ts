@@ -1,9 +1,4 @@
-import axios, {
-  AxiosInstance,
-  AxiosRequestConfig,
-  InternalAxiosRequestConfig,
-} from 'axios';
-import { getAuthToken } from '../utils/auth-utils';
+import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
 
 export interface CustomAxiosRequestConfig extends AxiosRequestConfig {
   authorization?: boolean;
@@ -26,6 +21,8 @@ const isProductionEnv = () => runtimeConfig.appEnv === 'production';
 const apiClient: AxiosInstance = axios.create({
   baseURL: runtimeConfig.baseURL,
   timeout: 60000,
+  // Auth now rides in httpOnly cookies; send them with every request.
+  withCredentials: true,
   headers: {
     'Content-Type': 'application/json',
   },
@@ -54,24 +51,6 @@ apiClient.interceptors.request.use((config) => {
   }
   return config;
 });
-
-apiClient.interceptors.request.use(
-  (config: InternalAxiosRequestConfig) => {
-    const customConfig = config as CustomAxiosRequestConfig;
-    if (customConfig.authorization) {
-      // const token = localStorage.getItem('user_auth');
-      const token = getAuthToken();
-      if (token) {
-        customConfig.headers = customConfig.headers || {};
-        customConfig.headers.Authorization = `Bearer ${token}`;
-      }
-    }
-    return config;
-  },
-  (error) => {
-    return Promise.reject(error);
-  },
-);
 
 apiClient.interceptors.response.use(
   (response) => response,
