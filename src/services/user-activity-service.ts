@@ -1,4 +1,5 @@
-import apiClient, { CustomAxiosRequestConfig } from './apiClient';
+import type { AxiosInstance } from 'axios';
+import { createApiClient, getAuthConfig } from '../auth';
 
 interface ActivityLogPayload {
   module: string;
@@ -11,17 +12,23 @@ interface ActivityLogPayload {
   event_metadata?: Record<string, any>;
 }
 
+// Activity logs live on the auth authority (assortment_user_bc), so target its
+// base URL. Built lazily on first use so `configureAuth(...)` (called at app
+// startup) has run before we read `userApiUrl` — race-ui components can be
+// imported before that bootstrap. Uses the cookie-auth client, which attaches
+// the X-CSRF-TOKEN header on mutating requests and refreshes on 401 — the plain
+// legacy client did neither, so every tab-click log 401'd.
+let client: AxiosInstance | null = null;
+const getClient = (): AxiosInstance => {
+  if (!client) {
+    client = createApiClient({ baseURL: getAuthConfig().userApiUrl });
+  }
+  return client;
+};
+
 const postActivityLog = async (payload: ActivityLogPayload) => {
   try {
-    const config: CustomAxiosRequestConfig = {
-      authorization: true, // Enable authorization if needed
-    };
-
-    const response = await apiClient.post(
-      '/api/activity-logs',
-      payload,
-      config
-    );
+    const response = await getClient().post('/api/activity-logs', payload);
     return response.data;
   } catch (error) {
     console.error('Failed to post activity log:', error);

@@ -1,4 +1,4 @@
-import { getApiClientConfig } from '../services/apiClient';
+import { getAuthConfig } from '../auth';
 import {
   ActivityLogPayload,
   postActivityLog,
@@ -17,7 +17,7 @@ interface LogActivityParams {
 
 // Generate session ID if it doesn't exist
 const getOrCreateSessionId = (): string => {
-  const appEnv = getApiClientConfig().appEnv;
+  const appEnv = getAuthConfig().appEnv;
   const sessionStorageKey = `${SESSION_ID_KEY}_${appEnv}`;
   let sessionId = sessionStorage.getItem(sessionStorageKey);
 
@@ -133,7 +133,7 @@ const logSubmit = (
 
 // Clear session on logout
 const clearSession = (): void => {
-  const appEnv = getApiClientConfig().appEnv;
+  const appEnv = getAuthConfig().appEnv;
   sessionStorage.removeItem(`${SESSION_ID_KEY}_${appEnv}`);
 };
 
